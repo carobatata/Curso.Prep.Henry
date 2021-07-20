@@ -37,7 +37,7 @@ function agregarItemAlFinalDelArray(array, elemento) {
   // Añade el "elemento" al final del array
   // y devuelve el array
   // Tu código:
-  array [array.length] = elemento;
+  array.push(elemento);
   return array;
 }
 
@@ -58,7 +58,7 @@ function dePalabrasAFrase(palabras) {
   // con espacios entre cada palabra
   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'
   // Tu código:
-  return palabras.join(" ")
+ return palabras.join(" ");
 }
 
 
@@ -67,9 +67,9 @@ function arrayContiene(array, elemento) {
   // Devuelve "true" si está, o "false" si no está
   // Tu código:
   for(var i = 0; i < array.length; i++) {
-   if(array[i] === elemento) {
-     return true;
-   }
+    if(array[i] === elemento) {
+      return true;
+    }
   }
   return false;
 }
@@ -152,7 +152,7 @@ function empiezaConNueve(n) {
   //Desarrolle una función que recibe como parámetro un número entero n. Debe retornar true si el entero 
   //inicia con 9 y false en otro caso.
   //Escribe tu código aquí
-  let num = n.toString()
+  var num = n.toString()
   if(num.charAt(0) === "9"){
     return true
   }
