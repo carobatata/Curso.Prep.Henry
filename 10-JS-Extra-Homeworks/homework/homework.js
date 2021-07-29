@@ -10,6 +10,11 @@ function deObjetoAmatriz(objeto){
       C: 3
     }) ➞ [["D", 1], ["B", 2], ["C", 3]]*/
   //Escribe tu código aquí
+  var array = [];
+  for (const key in objeto) {
+    array.push([key, objeto[key]]);
+  }
+  return array;
 }
 
 
@@ -18,6 +23,17 @@ function numberOfCharacters(string) {
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
+  var objeto = {}
+  for(var i = 0; i < string.length; i++) {
+    var letra = string[i];
+    if(objeto[letra]) {
+      objeto[letra] = objeto[letra] + 1;
+    }
+    else {
+      objeto[letra] = 1
+    }
+  }
+  return objeto;
 }
 
 
@@ -26,8 +42,37 @@ function capToFront(s) {
   //al principio de la palabra.
   //Ejemplo: soyHENRY -> HENRYsoy
   //Escribe tu código aquí
+  var mayusculas = "";
+  var minusculas = "";
+  for(var i = 0; i < s.length; i++) {
+    var letra = s[i];
+    if(letra.toUpperCase() === letra) {
+      mayusculas = mayusculas + letra;
+    }
+    else {
+      minusculas = minusculas + letra;
+    }
+  }
+  return mayusculas + minusculas;
 }
 
+
+
+function detectarPalabras(str) {
+  return str.split(" ");
+}
+
+function revertirPalabra(palabra) {
+  var reverse = "";
+  for( i = palabra.length - 1; i >= 0; i --) {
+    reverse = reverse + palabra[i];
+  }
+  return reverse;
+}
+
+function esUltimaIteracion(length, contador) {
+  return contador >= length - 1;
+}
 
 function asAmirror(str) {
   //La función recibe una frase. 
@@ -35,6 +80,18 @@ function asAmirror(str) {
   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
   //Escribe tu código aquí
+  var palabras = detectarPalabras(str);
+  var resultado = "";
+
+  for(var i = 0; i < palabras.length; i++) {
+    const palabraReversa = revertirPalabra(palabras[i]);  
+    resultado = resultado + palabraReversa;
+    if(!esUltimaIteracion(palabras.length, i)) {
+      resultado = resultado + " ";
+    }
+  }
+  
+  return resultado;
 } 
 
 
@@ -43,13 +100,27 @@ function capicua(numero){
   //La misma debe retornar: "Es capicua" si el número se número que se lee igual de 
   //izquierda a derecha que de derecha a izquierda. Caso contrario retorna "No es capicua"
   //Escribe tu código aquí
+  var string = numero.toString();
+  if(string === revertirPalabra(string)) {
+    return "Es capicua";
+  }
+  else {
+    return "No es capicua";
+  }
 }
-
 
 function deleteAbc(cadena){
   //Define una función que elimine las letras "a", "b" y "c" de la cadena dada 
   //y devuelva la versión modificada o la misma cadena, en caso de contener dichas letras.
   //Escribe tu código aquí
+  var newChain = "";
+  for(var i = 0; i < cadena.length; i++) {
+    var letra = cadena[i];
+    if(letra != "a" && letra != "b" && letra != "c") {
+      newChain = newChain + letra;
+    }
+  }
+  return newChain;
 }
 
 
@@ -57,6 +128,7 @@ function sortArray(arr) {
   //La función recibe una matriz de strings. Ordena la matriz en orden creciente de longitudes de cadena
   //Ej: Recibe ---> ["You", "are", "beautiful", "looking"] || Devuelve ---> [“You", "are", "looking", "beautiful"]
   //Escribe tu código aquí
+  
 }
 
 
